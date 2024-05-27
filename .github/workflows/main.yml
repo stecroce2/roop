@@ -1,0 +1,12 @@
+name: CI
+
+on: [push, workflow_dispatch]
+
+jobs:
+  run1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: download models
+      run: wget https://civitai.com/api/download/models/85159 -O inswapper_128.onnx
+    - name: run faceswap
+      run: python run.py
